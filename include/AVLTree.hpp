@@ -28,6 +28,7 @@ private:
     class AVLTreeIterator : public IIterator<std::pair<TKey, TElement>> {
     private:
         Stack<AVLNode*> stack_;
+
         void push_left_path(AVLNode* node) {
             while (node) {
                 stack_.push(node);

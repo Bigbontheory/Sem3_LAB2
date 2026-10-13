@@ -60,8 +60,7 @@ TEST(StudentDatabaseTest, RemoveStudentAndClearYearIndex) {
 
     EXPECT_FALSE(db.remove(999));
     EXPECT_EQ(db.size(), 2);
-
-    // Удаление первого студента года 2021
+    
     EXPECT_TRUE(db.remove(101));
     EXPECT_EQ(db.size(), 1);
     EXPECT_FALSE(db.contains(101));

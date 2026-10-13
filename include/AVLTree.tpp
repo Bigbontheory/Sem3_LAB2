@@ -1,5 +1,4 @@
 #pragma once
-#include <stdexcept>
 
 template <typename TKey, typename TElement>
 int AVLTree<TKey, TElement>::get_height(AVLNode* node) const noexcept {
@@ -111,7 +110,7 @@ void AVLTree<TKey, TElement>::erase(NodePtr& node, const TKey& key) {
     } else {
 
         if (!node->left) {
-            node = std::move(node->left);
+            node = std::move(node->right);
             --count;
         }
         else if (!node->right) {
@@ -123,10 +122,12 @@ void AVLTree<TKey, TElement>::erase(NodePtr& node, const TKey& key) {
             node->key = min_node->key;
             node->value = min_node->value;
             erase(node->right, min_node->key);
-
         }
     }
-    balance(node);
+
+    if (node) {
+        balance(node);
+    }
 }
 
 template<typename TKey, typename TElement>
