@@ -82,7 +82,7 @@ void draw_ui(StudentDatabase& database, Form& form, int& search_id,
     if (!message.empty()) { ImGui::Separator(); ImGui::TextWrapped("%s", message.c_str()); }
     ImGui::EndChild();
 
-    ImGui::SameLine();
+    ImGui::SameLine
     ImGui::BeginChild("Results", ImVec2(0, 0), ImGuiChildFlags_Borders);
     const int from = view == View::ByYears ? min_year : std::numeric_limits<int>::min();
     const int to = view == View::ByYears ? max_year : std::numeric_limits<int>::max();
